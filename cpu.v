@@ -8,9 +8,13 @@ module ALU (A,B,S, opertype)
 	
 	always@(opertype)
 		begin
-			case(s)
+			case(opertype)
 				4'b0000: S = A + B;
 				4'b0001: S = A - B;
+				4'b0010: S = A && B;
+				4'b0011: S = A || B;
+				4'b0100: S = A * B;
+				4'b0101: S = not(A && B);
 			endcase
 		end
 endmodule
